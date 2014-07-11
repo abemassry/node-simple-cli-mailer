@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+
+// node-simple-cli-mailer
+//
+// Usage:
+// 
+// ./simple-mailer user@example.com "This is the subject" "This is the body"
+//
+//
+// Dependencies:
+// 
+// npm install nodemailer
+// 
+//
+// Optional:
+//
+// vars.js file in same directory added to .gitignore to keep login info
+// private.  Otherwise just hard code it in here as strings (not recommended)
+//
+
+
+var nodemailer = require('nodemailer');
+var vars = require('./vars.js');
+
+var EMAIL_TRANSPORT = vars.email_transport; // "SMTP"
+var EMAIL_SERVICE = vars.email_service;     // "Gmail"
+var EMAIL_USER = vars.email_user;           // "user@gmail.com"
+var EMAIL_PASS = vars.email_password;       // "user pass"
+var TO_ADDRESS = process.argv[2];
+var SUBJECT = process.argv[3];
+var BODY = process.argv[4];
+
+var transport = nodemailer.createTransport(EMAIL_TRANSPORT, {
+  service: EMAIL_SERVICE,
+  auth: {
+    user: EMAIL_USER,
+    pass: EMAIL_PASS
+  }
+});
+
+var mailOptions = {
+  from: EMAIL_USER,
+  to: TO_ADDRESS,
+  subject: SUBJECT,
+  text: BODY
+};
+
+transport.sendMail(mailOptions, function(error, response){
+  if(error) {
+    console.log(error);
+  } else {
+    console.log('email sent');
+    process.exit();
+  }
+});
