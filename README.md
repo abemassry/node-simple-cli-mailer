@@ -22,4 +22,5 @@ private.  Otherwise just hard code it in here as strings (not recommended)
 Install:
 
 Clone this repo
+
 git clone git@github.com:abemassry/node-simple-cli-mailer.git
