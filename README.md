@@ -4,23 +4,23 @@ node-simple-cli-mailer
 A simple way to email from the command line using nodemailer in a handy script.
 
 
-Usage:
+## Usage:
 
-./simple-mailer user@example.com "This is the subject" "This is the body"
-
-
-Dependencies:
-
-npm install nodemailer
+`./simple-mailer user@example.com "This is the subject" "This is the body"`
 
 
-Optional:
+## Dependencies:
 
-vars.js file in same directory added to .gitignore to keep login info
+`npm install nodemailer`
+
+
+## Optional:
+
+`vars.js` file in same directory added to .gitignore to keep login info
 private.  Otherwise just hard code it in here as strings (not recommended)
 
-Install:
+## Install:
 
-Clone this repo
+### Clone this repo
 
-git clone git@github.com:abemassry/node-simple-cli-mailer.git
+`git clone git@github.com:abemassry/node-simple-cli-mailer.git`
